@@ -30,13 +30,13 @@ const Search = ({ onSubmit }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    onSubmit({ name, number, email,company });
+    onSubmit({ name, number, email, company });
     reset();
   };
-  
+
   const reset = () => {
     setName('');
-   
+
     setNumber('');
     setEmail('');
     setCompany('');
@@ -54,6 +54,7 @@ const Search = ({ onSubmit }) => {
           required
           value={name}
           onChange={handleChange}
+          autocomplete="off"
         />
       </label>
       <label className={s.Form}>
@@ -66,31 +67,35 @@ const Search = ({ onSubmit }) => {
           required
           value={number}
           onChange={handleChange}
+          autocomplete="off"
         />
       </label>
       <label className={s.Form}>
-          <span >Email</span>
+        <span>Email</span>
         <input
           type="email"
           name="email"
           pattern="^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(?:\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@(?:[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)*(?:aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$"
-          title='Email must be built by username@hostname and can consist of letters, numbers. For example tropic21@gmail.com'
+          title="Email must be built by username@hostname and can consist of letters, numbers. For example tropic21@gmail.com"
           value={email}
           onChange={handleChange}
           required
+          autocomplete="off"
         />
       </label>
       <label className={s.Form}>
-          <span >Company</span>
-          <input type="text"
+        <span>Company</span>
+        <input
+          type="text"
           name="company"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           value={company}
           onChange={handleChange}
           required
+          autocomplete="off"
         />
       </label>
-      <button className={s.Button} type="submit" aria-label='Add contact'>
+      <button className={s.Button} type="submit" aria-label="Add contact">
         Add contact
       </button>
     </form>

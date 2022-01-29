@@ -1,0 +1,44 @@
+@import 'style/shared';
+.Container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  max-width: 550px;
+  background-color: $primary-text-color;
+}
+
+.Item{
+  padding: 10px 5px;
+  color: black;
+  border-radius: 10px;
+  &:hover,
+  &:focus {
+    background-color: $btn-accent-background;
+    color: $primary-text-color;
+  }
+}
+.Item+.Item{
+  margin-left: 40px;
+}
+.LogOut{
+  border: none;
+  background: transparent;
+  padding: 10px 5px;
+  border-radius: 10px;
+  &:hover,&:focus{
+    background-color: $btn-accent-background ;
+    color: $primary-text-color;
+  }
+}
+.UserMenu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p{
+    margin-right: 10px;
+  }
+}

@@ -7,6 +7,7 @@ import logger from 'redux-logger';
 import contactsReducer from './contacts/phonebook-slice';
 import {
   persistStore,
+  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -14,7 +15,8 @@ import {
   PURGE,
   PERSIST,
 } from 'redux-persist';
-
+import storage from 'redux-persist/lib/storage';
+import authReducer from './auth/auth-slice';
 const middleware = [
   ...getDefaultMiddleware({
     serializableCheck: {
@@ -23,17 +25,19 @@ const middleware = [
   }),
   logger,
 ];
-const rootReducer = combineReducers({
-  contacts: contactsReducer,
-});
-//const persisterReducer = persistReducer(persistConfig, rootReducer);
 
-const store = configureStore({
-  reducer: rootReducer,
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
+};
+
+export const store = configureStore({
+  reducer: {
+    contacts: contactsReducer,
+    auth: persistReducer(authPersistConfig, authReducer),
+  },
   middleware,
   devTools: process.env.NODE_ENV === 'development',
 });
-const persistor = persistStore(store);
-
-//export default { store, persistor };
-export default store;
+export const persistor = persistStore(store);
