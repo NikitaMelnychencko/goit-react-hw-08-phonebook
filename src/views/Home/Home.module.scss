@@ -1,0 +1,22 @@
+@import 'style/shared';
+
+.DeleteBtn {
+  @extend %button;
+  background-color: $delete-btn-background;
+  color: $primary-text-color;
+
+  &:focus,
+  &:hover {
+    background-color: $delete-btn-accent-background;
+  }
+}
+.CancelBtn {
+  @extend %button;
+  background-color: $btn-background;
+  color: $primary-text-color;
+
+  &:focus,
+  &:hover {
+    background-color: $btn-accent-background;
+  }
+}

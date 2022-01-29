@@ -1,0 +1,74 @@
+@import 'style/shared';
+.FormList_Item + .FormList_Item {
+  margin-top: 10px;
+}
+
+.Item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.Input {
+  width: 300px;
+  padding: 5px 20px;
+  background-color: $input-background;
+}
+
+//=======btn============
+.ButtonBox {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 5px;
+}
+.ApplyBtn {
+  @extend %button;
+  background-color: $apply-btn-background;
+  color: $primary-text-color;
+
+  &:focus,
+  &:hover {
+    background-color: $apply-btn-accent-background;
+  }
+}
+.CancelBtn {
+  @extend %button;
+  background-color: $btn-background;
+  color: $primary-text-color;
+
+  &:focus,
+  &:hover {
+    background-color: $btn-accent-background;
+  }
+}
+.deleteBtn {
+  @extend %button;
+  background-color: $delete-btn-background;
+  color: $primary-text-color;
+
+  &:focus,
+  &:hover {
+    background-color: #ae4848;
+  }
+}
+.LastStep {
+  @extend %button;
+  background-color: $lastStep-btn-background;
+
+  &:focus,
+  &:hover {
+    background-color: $lastStep-btn-accent-background;
+  }
+}
+.svgUndo {
+  width: 20px;
+  height: 20px;
+}
+button + button {
+  margin-left: 15px;
+}
+
+//=============btn end ==================
+

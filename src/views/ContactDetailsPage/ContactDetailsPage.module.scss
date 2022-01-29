@@ -1,0 +1,63 @@
+@import 'style/shared';
+.AddNewFolderBoX {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10px;
+}
+.AddField {
+  margin-top: 20px;
+}
+
+.AddField_UndoBtn {
+  margin-left: 10px;
+}
+.Item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.Input {
+  width: 300px;
+  padding: 5px 20px;
+  background-color: $input-background;
+}
+.AddBtnFieldBox {
+  margin-top: 10px;
+}
+
+//=======btn============
+.ApplyBtn {
+  @extend %button;
+  background-color: $apply-btn-background;
+  color: $primary-text-color;
+
+  &:focus,
+  &:hover {
+    background-color: $apply-btn-accent-background;
+  }
+}
+.CancelBtn {
+  @extend %button;
+  background-color: $btn-background;
+  color: $primary-text-color;
+
+  &:focus,
+  &:hover {
+    background-color: $btn-accent-background;
+  }
+}
+.AddField {
+  @extend %button;
+  background-color: $btn-background;
+  color: $primary-text-color;
+
+  &:focus,
+  &:hover {
+    background-color: $btn-accent-background;
+  }
+}
+button+button {
+  margin-left: 15px;
+}
+

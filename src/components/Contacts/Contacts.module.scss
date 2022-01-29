@@ -1,0 +1,24 @@
+@import 'style/shared';
+.Contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid $primary-border;
+  border-radius: 5px;
+  padding: 10px;
+  &:hover {
+    background-color: $primary-accent-background;
+    color: $primary-text-color;
+
+  }
+  & + .Contact {
+    margin-top: 10px;
+  }
+}
+.Link{
+  text-decoration: none;
+  color: $secondary-text-color;
+  .Contact:hover &{
+    color: $primary-accent-text-color;
+  }
+}

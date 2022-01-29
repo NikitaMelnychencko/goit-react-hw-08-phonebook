@@ -1,0 +1,40 @@
+@import 'style/shared';
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $overlay-background;
+  z-index: 1200;
+}
+
+.Modal {
+  max-width: calc(100vw - 48px);
+  max-height: calc(100vh - 24px);
+  
+}
+.Button {
+  display: block;
+  margin-left: auto;
+  padding: 5px 10px;
+  background-color: inherit;
+  border: inherit;
+  color: $secondary-btn-background;
+  &:focus,
+  &:hover {
+    background-color: $secondary--btn-accent-background;
+  }
+}
+
+.Warper{
+  display: flex;
+  justify-content: space-evenly;
+  background-color: $secondary-background;
+  border-radius:20px;
+  padding: 20px 20px;
+  width: 350px;
+}

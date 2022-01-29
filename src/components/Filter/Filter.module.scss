@@ -1,0 +1,12 @@
+@import 'style/shared';
+.Filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  & input {
+    padding: 5px 0 5px 10px;
+    background-color: $input-background;
+    width: 150px;
+  }
+}

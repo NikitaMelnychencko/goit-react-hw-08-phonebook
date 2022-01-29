@@ -1,0 +1,31 @@
+@import 'style/shared';
+.SearchForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  & input {
+    padding: 5px 20px;
+    background-color: $input-background;
+  }
+}
+.Button {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: $btn-background;
+  color: $primary-text-color;
+  &:hover,
+  :focus {
+    background-color: $btn-accent-background;
+  }
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  & + .Form {
+    margin-top: 10px;
+  }
+}
