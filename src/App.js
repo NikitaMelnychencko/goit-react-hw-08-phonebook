@@ -5,6 +5,8 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import Section from 'components/Section/Section';
 import { useDispatch } from 'react-redux';
 import operation from 'redux/auth/auth-operation';
+import PrivateRoute from 'PrivateRoute';
+import PublicRoute from 'PublicRoute';
 
 const Home = lazy(() =>
   import('views/Home/Home' /* webpackChunkName: "Home" */),
@@ -49,21 +51,21 @@ const App = () => {
       }
     >
       <Switch>
-        <Route exact path="/">
+        <PublicRoute exact path="/">
           <Home />
-        </Route>
-        <Route exact path="/login">
+        </PublicRoute>
+        <PublicRoute exact path="/login" restricted>
           <Login />
-        </Route>
-        <Route exact path="/register">
+        </PublicRoute>
+        <PublicRoute exact path="/register" restricted>
           <Register />
-        </Route>
-        <Route exact path="/contact">
+        </PublicRoute>
+        <PrivateRoute exact path="/contact">
           <Contact />
-        </Route>
-        <Route path="/:contactId">
+        </PrivateRoute>
+        <PrivateRoute path="/:contactId">
           <ContactDetailsPage />
-        </Route>
+        </PrivateRoute>
       </Switch>
     </Suspense>
   );

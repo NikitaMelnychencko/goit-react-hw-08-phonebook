@@ -37,10 +37,13 @@ const authSlice = createSlice({
     //====refreshCurrentUser====//
     //[operation.refreshCurrentUser.pending]: (state, action) => {},
     [operation.refreshCurrentUser.fulfilled]: (state, { payload }) => {
-      state.user = { ...payload };
+      state.user = payload;
       state.isLoggedIn = true;
     },
-    //[operation.refreshCurrentUser.rejected]: (state, action) => {},
+    [operation.refreshCurrentUser.rejected]: (state, { payload }) => {
+      state.user = { ...payload.auth.user };
+      state.isLoggedIn = false;
+    },
   },
 });
 export default authSlice.reducer;
