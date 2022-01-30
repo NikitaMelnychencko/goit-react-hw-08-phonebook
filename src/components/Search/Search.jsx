@@ -6,8 +6,6 @@ import phone from 'image/img/phone.jpg';
 const Search = ({ onSubmit }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const [email, setEmail] = useState('');
-  const [company, setCompany] = useState('');
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -18,12 +16,7 @@ const Search = ({ onSubmit }) => {
       case 'number':
         setNumber(value);
         break;
-      case 'email':
-        setEmail(value);
-        break;
-      case 'company':
-        setCompany(value);
-        break;
+
       default:
         return;
     }
@@ -31,7 +24,7 @@ const Search = ({ onSubmit }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    onSubmit({ name, number, email, company });
+    onSubmit({ name, number });
     reset();
   };
 
@@ -39,8 +32,6 @@ const Search = ({ onSubmit }) => {
     setName('');
 
     setNumber('');
-    setEmail('');
-    setCompany('');
   };
 
   return (
@@ -68,29 +59,6 @@ const Search = ({ onSubmit }) => {
             required
             value={number}
             onChange={handleChange}
-          />
-        </label>
-        <label className={s.Form}>
-          <span>Email</span>
-          <input
-            type="email"
-            name="email"
-            pattern="^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(?:\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@(?:[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)*(?:aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$"
-            title="Email must be built by username@hostname and can consist of letters, numbers. For example tropic21@gmail.com"
-            value={email}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label className={s.Form}>
-          <span>Company</span>
-          <input
-            type="text"
-            name="company"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            value={company}
-            onChange={handleChange}
-            required
           />
         </label>
         <button className={s.Button} type="submit" aria-label="Add contact">
