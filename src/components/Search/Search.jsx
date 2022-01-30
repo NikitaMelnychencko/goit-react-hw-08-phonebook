@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import s from './Search.module.scss';
+import phone from 'image/img/phone.jpg';
 
 const Search = ({ onSubmit }) => {
   const [name, setName] = useState('');
@@ -43,62 +44,61 @@ const Search = ({ onSubmit }) => {
   };
 
   return (
-    <form className={s.SearchForm} onSubmit={handleSubmit}>
-      <label className={s.Form}>
-        <span>Name</span>
-        <input
-          type="text"
-          name="first_name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="First Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob , Charles"
-          required
-          value={name}
-          onChange={handleChange}
-          autocomplete="off"
-        />
-      </label>
-      <label className={s.Form}>
-        <span>Number</span>
-        <input
-          type="tel"
-          name="number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-          value={number}
-          onChange={handleChange}
-          autocomplete="off"
-        />
-      </label>
-      <label className={s.Form}>
-        <span>Email</span>
-        <input
-          type="email"
-          name="email"
-          pattern="^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(?:\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@(?:[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)*(?:aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$"
-          title="Email must be built by username@hostname and can consist of letters, numbers. For example tropic21@gmail.com"
-          value={email}
-          onChange={handleChange}
-          required
-          autocomplete="off"
-        />
-      </label>
-      <label className={s.Form}>
-        <span>Company</span>
-        <input
-          type="text"
-          name="company"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          value={company}
-          onChange={handleChange}
-          required
-          autocomplete="off"
-        />
-      </label>
-      <button className={s.Button} type="submit" aria-label="Add contact">
-        Add contact
-      </button>
-    </form>
+    <>
+      <form className={s.SearchForm} onSubmit={handleSubmit}>
+        <label className={s.Form}>
+          <span>Name</span>
+          <input
+            type="text"
+            name="first_name"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="First Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob , Charles"
+            required
+            value={name}
+            onChange={handleChange}
+          />
+        </label>
+        <label className={s.Form}>
+          <span>Number</span>
+          <input
+            type="tel"
+            name="number"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+            value={number}
+            onChange={handleChange}
+          />
+        </label>
+        <label className={s.Form}>
+          <span>Email</span>
+          <input
+            type="email"
+            name="email"
+            pattern="^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(?:\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@(?:[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)*(?:aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$"
+            title="Email must be built by username@hostname and can consist of letters, numbers. For example tropic21@gmail.com"
+            value={email}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label className={s.Form}>
+          <span>Company</span>
+          <input
+            type="text"
+            name="company"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            value={company}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <button className={s.Button} type="submit" aria-label="Add contact">
+          Add contact
+        </button>
+      </form>
+      <img className={s.Phone} src={phone} alt="Phone" />
+    </>
   );
 };
 Search.propTypes = {

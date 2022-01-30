@@ -43,16 +43,7 @@
     background-color: $btn-accent-background;
   }
 }
-.deleteBtn {
-  @extend %button;
-  background-color: $delete-btn-background;
-  color: $primary-text-color;
 
-  &:focus,
-  &:hover {
-    background-color: #ae4848;
-  }
-}
 .LastStep {
   @extend %button;
   background-color: $lastStep-btn-background;

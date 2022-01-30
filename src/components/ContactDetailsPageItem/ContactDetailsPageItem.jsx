@@ -4,13 +4,7 @@ import { useState } from 'react';
 import Modal from 'components/Modal/Modal-approve';
 import svg from '../../image/svg/proj_svg.svg';
 
-const ContactDetailsPageItem = ({
-  name,
-  value,
-  updateValue,
-  deleteValue,
-  lastStep,
-}) => {
+const ContactDetailsPageItem = ({ name, value, updateValue, lastStep }) => {
   const [inpValue, setInpValue] = useState(value);
   const [curentOperation, setCurentOperation] = useState('');
   const [showModal, setShowModal] = useState(false);
@@ -19,9 +13,6 @@ const ContactDetailsPageItem = ({
     switch (textContent) {
       case 'Cancel':
         toggleModal('Cancel');
-        break;
-      case 'Delete':
-        toggleModal('Delete');
         break;
       default:
         return;
@@ -32,10 +23,6 @@ const ContactDetailsPageItem = ({
     switch (curentOperation) {
       case 'Cancel':
         setInpValue(value);
-        toggleModal();
-        break;
-      case 'Delete':
-        deleteValue(name);
         toggleModal();
         break;
       default:
@@ -119,14 +106,6 @@ const ContactDetailsPageItem = ({
               </button>
 
               <button
-                className={s.deleteBtn}
-                type="button"
-                onClick={undoAction}
-                aria-label="Delete"
-              >
-                Delete
-              </button>
-              <button
                 type="button"
                 className={s.LastStep}
                 onClick={goToLastStep}
@@ -142,24 +121,24 @@ const ContactDetailsPageItem = ({
       </li>
       {showModal && (
         <Modal onClose={toggleModal}>
-            <>
-              <button
-                type="button"
-                className={s.ApplyBtn}
-                onClick={undoModalAction}
-                aria-label="Apply"
-              >
-                Apply
-              </button>
-              <button
-                type="button"
-                className={s.CancelBtn}
-                onClick={undoModalAction}
-                aria-label="Cancel"
-              >
-                Cancel
-              </button>
-            </>
+          <>
+            <button
+              type="button"
+              className={s.ApplyBtn}
+              onClick={undoModalAction}
+              aria-label="Apply"
+            >
+              Apply
+            </button>
+            <button
+              type="button"
+              className={s.CancelBtn}
+              onClick={undoModalAction}
+              aria-label="Cancel"
+            >
+              Cancel
+            </button>
+          </>
         </Modal>
       )}
     </>
@@ -169,7 +148,6 @@ ContactDetailsPageItem.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   lastStep: PropTypes.string,
-  deleteValue: PropTypes.func.isRequired,
 };
 
 export default ContactDetailsPageItem;

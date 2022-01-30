@@ -1,0 +1,25 @@
+@import 'style/shared';
+.UserMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    margin-right: 10px;
+  }
+}
+
+.LogOut {
+  border: none;
+  background: transparent;
+  padding: 10px 5px;
+  border-radius: 10px;
+  font-size: 14px;
+
+
+  &:hover,
+  &:focus {
+    background-color: $btn-accent-background;
+    color: $primary-text-color;
+  }
+}

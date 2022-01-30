@@ -19,7 +19,6 @@ import { BallTriangle } from 'react-loader-spinner';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import s from './Contact.module.scss';
 import contactOperation from '../../redux/contacts/phonebobook-operation';
-import Header from 'components/Header/Header';
 
 const Contact = () => {
   const [showModal, setShowModal] = useState(false);
@@ -60,7 +59,6 @@ const Contact = () => {
   };
   return (
     <>
-      <Header />
       <Section title={'Phonebook'}>
         <Search onSubmit={formSubmitHandler} />
       </Section>
